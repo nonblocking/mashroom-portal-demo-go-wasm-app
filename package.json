@@ -2,10 +2,9 @@
   "name": "@mashroom/mashroom-portal-demo-go-wasm-app",
   "description": "Simple Go/WebAssembly based app that integrates into the Mashroom Portal",
   "homepage": "https://www.mashroom-server.com",
-  "repository": "github:nonblocking/mashroom",
+  "repository": "github:nonblocking/mashroom-portal-demo-go-wasm-app",
   "license": "MIT",
   "version": "1.0.0",
-  "sideEffects": false,
   "files": [
     "public/**"
   ],
