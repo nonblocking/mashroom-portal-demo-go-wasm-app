@@ -1,0 +1,57 @@
+{
+  "name": "@mashroom/mashroom-portal-demo-go-wasm-app",
+  "description": "Simple Go/WebAssembly based app that integrates into the Mashroom Portal",
+  "homepage": "https://www.mashroom-server.com",
+  "repository": "github:nonblocking/mashroom",
+  "license": "MIT",
+  "version": "1.0.0",
+  "sideEffects": false,
+  "files": [
+    "public/**"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/cli": "^7.6.4",
+    "babel-loader": "^8.0.6",
+    "@mashroom/mashroom-portal": "1.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --hot --mode development",
+    "build:go": "GOOS=js GOARCH=wasm go build -o public/main.wasm ./src/go && cp $GOROOT/misc/wasm/wasm_exec.js public/go_wasm_exec.js",
+    "build:js": "webpack --mode production --display-error-details",
+    "build": "npm run build:go && npm run build:js"
+  },
+  "mashroom": {
+    "devModeBuildScript": "build",
+    "plugins": [
+      {
+        "name": "Mashroom Portal Demo Go WASM App",
+        "title": "Demo Go WASM App",
+        "type": "portal-app",
+        "bootstrap": "startGoWasmDemoApp",
+        "category": "Demo",
+        "sharedResources": {
+          "js": [
+            "go_wasm_exec.js"
+          ]
+        },
+        "resources": {
+          "js": [
+            "index.js"
+          ],
+          "css": []
+        },
+        "defaultConfig": {
+          "resourcesRoot": "./public",
+          "restProxies": {},
+          "appConfig": {
+            "firstName": "Larry"
+          }
+        }
+      }
+    ]
+  }
+}
