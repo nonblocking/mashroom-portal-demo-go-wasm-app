@@ -5,7 +5,7 @@ const bootstrap = (portalAppHostElement, portalAppSetup, clientServices) => {
 
     return new Promise((resolve, reject) => {
         if (WebAssembly && typeof WebAssembly.instantiate === 'function') {
-            const appInstanceId = 'MessageBus_DemoGoApp_' + Math.trunc(Math.random() * 1000000);
+            const appInstanceId = 'DemoGoApp_' + Math.trunc(Math.random() * 1000000);
             if (!portalAppHostElement.id) {
                 portalAppHostElement.id = appInstanceId;
             }
@@ -15,7 +15,7 @@ const bootstrap = (portalAppHostElement, portalAppSetup, clientServices) => {
             const messageBusGlobalObjName = `__${appInstanceId}`;
             window[messageBusGlobalObjName] = messageBus;
 
-            // "Go" is exposed by go_wasm_exec.js
+            // 'Go' is exposed by go_wasm_exec.js
             const go = new Go();
             let exitCode = 0;
             go.argv = [hostElementId, resourcesBasePath, firstName, messageBusGlobalObjName];
@@ -33,7 +33,7 @@ const bootstrap = (portalAppHostElement, portalAppSetup, clientServices) => {
                             willBeRemoved: () => {
                                 console.info('Ummounting Go WebAssembly app');
                                 // Send stop signal to Go app via message bus
-                                messageBus.publish("stop", {});
+                                messageBus.publish(`stop_${hostElementId}`, {});
                             }
                         });
                     }

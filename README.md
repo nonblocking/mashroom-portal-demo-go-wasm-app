@@ -19,7 +19,7 @@ Then you can place it on any page via Admin UI.
  * Install go 
  * Install godom:
         
-        go get github.com/siongui/godo
+        go get github.com/siongui/godom
         
  * Build
  

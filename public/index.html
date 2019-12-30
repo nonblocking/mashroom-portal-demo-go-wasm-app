@@ -33,7 +33,11 @@
                     },
                     subscribe: function(topic, callback) {
                         console.info('Subscribe', topic, callback);
-                        window.PING = callback;
+                        if (topic === 'ping') {
+                            window.PING = callback;
+                        } else if (topic.indexOf('stop') === 0) {
+                            window.STOP = callback;
+                        }
                     }
                 }
             };

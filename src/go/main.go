@@ -39,9 +39,9 @@ func subscribeToPing() {
 	messageBus.Call("subscribe", "ping", js.FuncOf(onPingReceived))
 }
 
-func subscribeToStop() {
+func subscribeToStop(hostElementId string) {
 	messageBus := Window.Get(messageBusObjName)
-	messageBus.Call("subscribe", "stop", js.FuncOf(onStop))
+	messageBus.Call("subscribe", "stop_"+hostElementId, js.FuncOf(onStop))
 }
 
 func attachEventHandlers() {
@@ -63,7 +63,7 @@ func main() {
 	attachEventHandlers()
 
 	subscribeToPing()
-	subscribeToStop()
+	subscribeToStop(hostElementId)
 
 	<-c
 	Println("Go app execution stopped")
