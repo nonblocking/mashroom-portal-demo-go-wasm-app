@@ -21,10 +21,6 @@ Then you can place it on any page via Admin UI.
         
         go get github.com/siongui/godom
         
- * Build
- 
-        npm run build 
- 
  * Start in dev mode:
   
         npm run dev

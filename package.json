@@ -9,16 +9,19 @@
     "public/**"
   ],
   "devDependencies": {
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.9.0",
     "@babel/cli": "^7.8.4",
-    "babel-loader": "^8.0.6",
-    "@mashroom/mashroom-portal": "^1.3.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.2"
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "watch-cli": "^0.2.3",
+    "concurrently": "^5.1.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server --hot --mode development",
+    "dev": "npm run build:go && concurrently --kill-others \"npm run watch:go\" \"npm run dev:server\"",
+    "dev:server": "webpack-dev-server --hot --mode development",
+    "watch:go": "watch -p **/*.go -c 'npm run build:go'",
     "build:go": "GOOS=js GOARCH=wasm go build -o public/main.wasm ./src/go && cp $GOROOT/misc/wasm/wasm_exec.js public/go_wasm_exec.js",
     "build:js": "webpack --mode production --display-error-details",
     "build": "npm run build:go && npm run build:js"

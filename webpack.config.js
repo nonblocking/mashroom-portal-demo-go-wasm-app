@@ -21,7 +21,7 @@ module.exports = {
     },
     externals: [],
     resolve: {
-        extensions: ['.js', '.go'],
+        extensions: ['.js'],
     },
     devServer: {
         inline: true,

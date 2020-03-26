@@ -1,6 +1,7 @@
 
 .idea
+*.iml
 
 node_modules
-*.wasm
+public/*.wasm
 public/*.js
