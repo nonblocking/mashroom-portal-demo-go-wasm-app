@@ -1,17 +1,17 @@
 
 # Mashroom Portal Demo Go WebAssembly App
 
-Plugin for [Mashroom Server](https://www.mashroom-server.com), a **Integration Platform for Microfrontends**. 
+Plugin for [Mashroom Server](https://www.mashroom-server.com), a **Microfrontend Integration Platform**.
 
 Demonstrates how a WebAssembly can be used as a Portal App (Microfrontend) for _Mashroom Portal_.
+
+![Mashroom Portal](screenshot.png)
 
 ## Usage
 
 If *node_modules/@mashroom* is configured as plugin path just add **@mashroom/mashroom-portal-demo-go-wasm-app** as *dependency*.
 
 Then you can place it on any page via Admin UI.
-
-![Mashroom Portal](screenshot.png)
 
 ## Development Setup
 
