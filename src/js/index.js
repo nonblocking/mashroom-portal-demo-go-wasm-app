@@ -1,6 +1,6 @@
 
 const bootstrap = (portalAppHostElement, portalAppSetup, clientServices) => {
-    const { resourcesBasePath, appConfig: { firstName }} = portalAppSetup;
+    const { resourcesBasePath, appConfig: { message, pingButtonLabel }} = portalAppSetup;
     const { messageBus } = clientServices;
 
     return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ const bootstrap = (portalAppHostElement, portalAppSetup, clientServices) => {
             // 'Go' is exposed by go_wasm_exec.js
             const go = new Go();
             let exitCode = 0;
-            go.argv = [hostElementId, resourcesBasePath, firstName, messageBusGlobalObjName];
+            go.argv = [hostElementId, resourcesBasePath, message, pingButtonLabel, messageBusGlobalObjName];
             go.exit = (code) => {
                 exitCode = code;
             };

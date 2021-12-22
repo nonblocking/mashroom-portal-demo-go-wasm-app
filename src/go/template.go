@@ -8,7 +8,8 @@ import (
 
 type Model struct {
 	ResourcesBasePath string
-	FirstName         string
+	Message string
+	PingButtonLabel string
 }
 
 var parsedTemplate, _ = template.New("htmlTemplate").Parse(`
@@ -17,10 +18,10 @@ var parsedTemplate, _ = template.New("htmlTemplate").Parse(`
 		<div>
 			<h4>Go WebAssembly Demo App</h4>
 			<p>
-				Hello {{.FirstName}}!
+				{{.Message}}!
 			</p>
 			<div>
-				<button style="margin-right:10px">Send Ping</button>
+				<button style="margin-right:10px">{{.PingButtonLabel}}</button>
 				<span class="number-pings">
 					Received pings: 0
 				</span>
@@ -29,8 +30,8 @@ var parsedTemplate, _ = template.New("htmlTemplate").Parse(`
 	</div>
 `)
 
-func createHtml(resourcesBasePath string, firstName string) string {
-	model := Model{ResourcesBasePath: resourcesBasePath, FirstName: firstName}
+func createHtml(resourcesBasePath string, message string, pingButtonLabel string) string {
+	model := Model{ResourcesBasePath: resourcesBasePath, Message: message, PingButtonLabel: pingButtonLabel}
 
 	var buf bytes.Buffer
 	err := parsedTemplate.Execute(&buf, model)

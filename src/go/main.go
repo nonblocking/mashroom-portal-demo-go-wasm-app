@@ -52,13 +52,14 @@ func attachEventHandlers() {
 func main() {
 	hostElementId := os.Args[0]
 	resourcesBasePath := os.Args[1]
-	firstName := os.Args[2]
-	messageBusObjName = os.Args[3]
+	message := os.Args[2]
+	pingButtonLabel := os.Args[3]
+	messageBusObjName = os.Args[4]
 
-	Println("Got arguments: ", hostElementId, resourcesBasePath, firstName, messageBusObjName)
+	Println("Got arguments: ", hostElementId, resourcesBasePath, message, pingButtonLabel, messageBusObjName)
 
 	hostElement = Document.GetElementById(hostElementId)
-	hostElement.SetInnerHTML(createHtml(resourcesBasePath, firstName))
+	hostElement.SetInnerHTML(createHtml(resourcesBasePath, message, pingButtonLabel))
 
 	attachEventHandlers()
 

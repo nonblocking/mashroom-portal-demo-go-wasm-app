@@ -35,5 +35,5 @@ Then you can place it on any page via Admin UI.
  
  ## Hints
  
-  * The created WebAssembly is very big (around 4MB). This could be improved by using [TinyGo](https://tinygo.org/), 
+  * The created WebAssembly is very big (around 3.5MB). This could be improved by using [TinyGo](https://tinygo.org/), 
     but unfortunately it can currently not import *text/template*. See: https://github.com/trashhalo/tinygo-import-report/blob/master/Readme.md

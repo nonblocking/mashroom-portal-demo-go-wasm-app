@@ -5,3 +5,5 @@
 node_modules
 public/*.wasm
 public/*.js
+public/*.png
+
