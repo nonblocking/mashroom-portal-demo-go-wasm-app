@@ -17,9 +17,9 @@ Then you can place it on any page via Admin UI.
 
  * Install node
  * Install go 
- * Install godom:
+ * Install dependencies:
         
-        go get github.com/siongui/godom
+        go mod download
         
  * Start in dev mode:
   
