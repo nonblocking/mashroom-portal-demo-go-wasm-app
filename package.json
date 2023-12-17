@@ -22,7 +22,7 @@
     "dev": "npm run build:go && concurrently --kill-others \"npm run watch:go\" \"npm run dev:server\"",
     "dev:server": "webpack-dev-server --hot --mode development",
     "watch:go": "watch -p **/*.go -c 'npm run build:go'",
-    "build:go": "GOOS=js GOARCH=wasm go build -o public/main.wasm ./src/go && cp wasm_exec.js public/go_wasm_exec.js && cp screenshot.png public",
+    "build:go": "GOOS=js GOARCH=wasm go build -o public/main.wasm ./src/go && cp $(go env GOROOT)/misc/wasm/wasm_exec.js public/go_wasm_exec.js && cp screenshot.png public",
     "build:js": "webpack --mode production",
     "build": "npm run build:go && npm run build:js"
   },

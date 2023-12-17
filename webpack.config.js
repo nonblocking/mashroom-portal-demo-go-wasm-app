@@ -24,11 +24,10 @@ module.exports = {
         extensions: ['.js'],
     },
     devServer: {
-        inline: true,
         host: '0.0.0.0',
-        disableHostCheck: true,
+        allowedHosts: 'all',
         port: 8055,
-        contentBase: 'public',
-        open: true,
+        static: 'public',
+        open: true
     },
 };

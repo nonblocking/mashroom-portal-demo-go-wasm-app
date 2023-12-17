@@ -2,8 +2,9 @@
 .idea
 *.iml
 
+
 node_modules
 public/*.wasm
 public/*.js
 public/*.png
-
+.DS_Store
