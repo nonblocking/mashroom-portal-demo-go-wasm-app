@@ -9,20 +9,20 @@
     "public/**"
   ],
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/cli": "^7.16.0",
-    "babel-loader": "^8.2.3",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.7.0",
+    "@babel/core": "^7.27.4",
+    "@babel/cli": "^7.27.2",
+    "babel-loader": "^10.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
     "watch-cli": "^0.2.3",
-    "concurrently": "^6.5.1"
+    "concurrently": "^9.1.2"
   },
   "scripts": {
     "dev": "npm run build:go && concurrently --kill-others \"npm run watch:go\" \"npm run dev:server\"",
     "dev:server": "webpack-dev-server --hot --mode development",
     "watch:go": "watch -p **/*.go -c 'npm run build:go'",
-    "build:go": "GOOS=js GOARCH=wasm go build -o public/main.wasm ./src/go && cp $(go env GOROOT)/misc/wasm/wasm_exec.js public/go_wasm_exec.js && cp screenshot.png public",
+    "build:go": "GOOS=js GOARCH=wasm go build -o public/main.wasm ./src/go && cp $(go env GOROOT)/lib/wasm/wasm_exec.js public/go_wasm_exec.js && cp screenshot.png public",
     "build:js": "webpack --mode production",
     "build": "npm run build:go && npm run build:js"
   },
